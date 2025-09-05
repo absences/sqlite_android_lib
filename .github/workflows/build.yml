@@ -13,18 +13,18 @@ jobs:
   steps:
     - uses: actions/checkout@v4
     - name: Install NDK
-        run: |
+      run: |
           cd ~
           wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r28c-linux.zip
           unzip -q NDK
           ANDROID_NDK_HOME=$(pwd)/android-ndk-r28c
     - name: Build
-        run: |
+      run: |
           cd jni
           ndk-build
     - name: Upload
-        uses: actions/upload-artifact@v4
-        with:
-          path: ./libs/**/*
-          name: libsqlite3
+      uses: actions/upload-artifact@v4
+      with:
+        path: ./libs/**/*
+        name: libsqlite3
   
