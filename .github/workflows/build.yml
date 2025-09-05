@@ -8,23 +8,23 @@ on:
 jobs:
   build-android-sqlite:
     name: Build libsqlite3.so for Android
-    runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v4
-    - name: Install NDK
-      run: |
-          cd ~
-          wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r28c-linux.zip
-          unzip -q NDK
-          ANDROID_NDK_HOME=$(pwd)/android-ndk-r28c
-    - name: Build
-      run: |
-          cd jni
-          ndk-build
-    - name: Upload
-      uses: actions/upload-artifact@v4
-      with:
-        path: ./libs/**/*
-        name: libsqlite3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install NDK
+        run: |
+            cd ~
+            wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r28c-linux.zip
+            unzip -q NDK
+            ANDROID_NDK_HOME=$(pwd)/android-ndk-r28c
+      - name: Build
+        run: |
+            cd jni
+            ndk-build
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./libs/**/*
+          name: libsqlite3
   
