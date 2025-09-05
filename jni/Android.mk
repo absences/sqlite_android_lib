@@ -2,6 +2,8 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+APP_PLATFORM := android-21
+
 LOCAL_LDLIBS := -llog
 
 LOCAL_MODULE    := sqlite3
