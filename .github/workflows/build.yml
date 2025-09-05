@@ -17,7 +17,9 @@ jobs:
             cd ~
             wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r28c-linux.zip
             unzip -q NDK
-            ANDROID_NDK_HOME=$(pwd)/android-ndk-r28c
+            export ANDROID_NDK_HOME=$HOME/android-ndk-r28c
+            echo "$ANDROID_NDK_HOME" >> $GITHUB_PATH
+            echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
       - name: Build
         run: |
             cd jni
