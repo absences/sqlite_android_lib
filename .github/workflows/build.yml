@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install NDK
         run: |
             cd ~
@@ -25,7 +25,7 @@ jobs:
             cd jni
             ndk-build
       - name: Upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           path: ./libs/**/*
           name: libsqlite3
